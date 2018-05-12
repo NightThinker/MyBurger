@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import axios from '../../axios-orders';
 
 import Aux from '../../hoc/Aux/Aux';
-import Burger from '../../components/Burger/Burger';
+import axios from '../../axios-orders';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Burger from '../../components/Burger/Burger';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSumary from '../../components/Burger/OrderSumary/OrderSumary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-
 
 const INGREDIENT_PRICE = {
   salad: 0.5,
