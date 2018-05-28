@@ -9,6 +9,8 @@ import OrderSumary from '../../components/Burger/OrderSumary/OrderSumary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
+import * as actionTypes from '../../store/actions';
+
 const INGREDIENT_PRICE = {
   salad: 0.5,
   cheese: 0.4,
@@ -33,7 +35,7 @@ class BurgerBuilder extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props);
+    console.log('berger :',this.props);
     axios.get('https://react-my-burger-515fc.firebaseio.com/ingredients.json')
       .then(response => {
         this.setState({ingredients: response.data})
@@ -114,6 +116,7 @@ class BurgerBuilder extends Component {
     const disabledInfo = {
       ...this.state.ingredients
     };
+    console.log('disabledInfo: ',disabledInfo);
     for(let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0
     }
