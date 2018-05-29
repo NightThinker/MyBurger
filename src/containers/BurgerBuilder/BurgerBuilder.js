@@ -35,6 +35,14 @@ class BurgerBuilder extends Component {
     //     // console.log('error: ', error);
     //     this.setState({error: true});
     //   });
+
+    //update โดยไม่กระพริบ
+    // if(module.hot) {
+    //   module.hot.accept('./'), ( => {
+    //     this.forceUpdate()
+    //   })
+    // }
+    
   }
 
   updatePurchaseState (ingredients) {
