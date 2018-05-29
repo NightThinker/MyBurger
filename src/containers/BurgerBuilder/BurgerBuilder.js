@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Aux from '../../hoc/Aux/Aux';
-import axios from '../../axios-orders';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Burger from '../../components/Burger/Burger';
 import Modal from '../../components/UI/Modal/Modal';
@@ -11,6 +10,7 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 import * as burgerBuilderActions from '../../store/actions/index';
+import axios from '../../axios-orders';
 
 class BurgerBuilder extends Component {
 
@@ -20,29 +20,11 @@ class BurgerBuilder extends Component {
   // }
 
   state = {
-    purchasing: false,
-    loading: false,
-    error: false
+    purchasing: false
   }
 
   componentDidMount () {
     console.log('berger :',this.props);
-    axios.get('https://react-my-burger-515fc.firebaseio.com/ingredients.json')
-      .then(response => {
-        this.setState({ingredients: response.data})
-      })
-      .catch(error => {
-        // console.log('error: ', error);
-        this.setState({error: true});
-      });
-
-    //update โดยไม่กระพริบ
-    // if(module.hot) {
-    //   module.hot.accept('./'), ( => {
-    //     this.forceUpdate()
-    //   })
-    // }
-    
   }
 
   updatePurchaseState (ingredients) {
@@ -98,9 +80,6 @@ class BurgerBuilder extends Component {
         purchaseCanceled={this.purchaseCancelHandler}
         purchaseContinued={this.purchaseContinueHandler}
         price={this.props.price} /> ;
-    }
-    if(this.state.loading) {
-      orderSummary = <Spinner />;
     }
   
     //{salad: ture , bacon: false, ...}
