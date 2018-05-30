@@ -5,5 +5,6 @@ export {
 } from './burgerBuilder';
 export { 
   purchaseBurger,
-  purchaseInit
+  purchaseInit,
+  fatchOrders
  } from './order';
