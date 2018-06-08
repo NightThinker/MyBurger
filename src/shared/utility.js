@@ -13,7 +13,6 @@ export const checkValidity = (value, rules) => {
 
   if (rules.required) {
     isValid = value.trim() !== '' && isValid;
-    console.log('isValid: ', isValid);
   }
 
   if (rules.minLength) {
@@ -27,7 +26,6 @@ export const checkValidity = (value, rules) => {
   if (rules.isEmail) {
     const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     isValid = pattern.test(value) && isValid;
-    console.log('isValid: ', isValid);
   }
 
   if (rules.isNumeric) {

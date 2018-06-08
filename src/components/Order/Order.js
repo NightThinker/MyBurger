@@ -4,7 +4,6 @@ import classes from './Order.css';
 
 const order = (props) => {
   const ingredients = [];
-  // console.log(props.ingredients);
   for(let ingerdientName in props.ingredients) {
     ingredients.push(
       {
@@ -13,7 +12,6 @@ const order = (props) => {
       }
     );
   }
-  // console.log(ingredients);
   const ingredientOutput = ingredients.map(ig => {
     return <span 
        style={{

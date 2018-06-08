@@ -87,7 +87,6 @@ class Auth extends Component {
         config: this.state.controls[key]
       })
     } 
-    console.log(this.state.isSignup);
     let form = formElementArray.map(formElement => (
       <Input 
         key={formElement.id}
