@@ -61,10 +61,11 @@ export const fatchOrdersStart = () => {
   };
 }
 
-export const fatchOrders = (token) => {
+export const fatchOrders = (token, userId) => {
   return dispatch  => {
     dispatch(fatchOrdersStart());
-    axios.get('/orders.json?auth=' + token)
+    const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+    axios.get('/orders.json' + queryParams)
       .then(res => {
         // console.log('res: ', res.data);
         const fetchedOrders= [];
